@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rabbit Chatbot</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/chat.css') }}">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/nav_bar.css')}}">
+</head>
+<body>
+    <nav class="nav_bar">
+        <div class="left-section">
+            <div class="nav_logo">
+                <img src="{{url_for('static',filename='img/logo_png.png')}}" width="50" height="45">
+            </div>
+            <a id="home_link" href="/"><div class="nav_title"> Rabbit</div></a>
+
+        </div>
+    <div class="right-section">
+        <div class="nav_items"> <a id="home_link"href="/">Home</a></div>
+        <div class="nav_items"> <a id="home_link"href="test.html">Documentation</a></div>
+        <div class="nav_items"> <a id="home_link"href="/team">Team</a></div>
+        <div class="nav_items"> <a id="home_link"href="/about">About</a></div>
+    </div>
+</nav>
+<div class="chat-container">
+    <h1>Rabbit Chatbot</h1>
+
+    <div class="chat-box">
+        {% if response %}
+        <div class="chat-message bot">
+            <p>{{ response | safe }}</p>
+        </div>
+        {% endif %}
+
+        <!-- Add user messages as well if you are tracking them in the backend -->
+        {% if user_question %}
+        <div class="chat-message user">
+            <p>{{ user_question }}</p>
+        </div>
+        {% endif %}
+    </div>
+
+    <form action="/chat" method="post" class="chat-input-container">
+        <input type="text" id="question" name="question" placeholder="Type your message..." required aria-label="Ask a question">
+        <button type="submit">Send</button>
+    </form>
+</div>
+</body>
+</html>

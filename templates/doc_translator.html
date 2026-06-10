@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='css/doc_translator.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/nav_bar.css')}}">
+</head>
+<body>
+    <nav class="nav_bar">
+        <div class="left-section">
+            <div class="nav_logo">
+                <img src="{{url_for('static',filename='img/logo_png.png')}}" width="50" height="45">
+            </div>
+            <a id="home_link" href="/"><div class="nav_title"> Rabbit</div></a>
+
+        </div>
+    <div class="right-section">
+        <div class="nav_items"> <a id="home_link"href="/">Home</a></div>
+        <div class="nav_items"> <a id="home_link"href="test.html">Documentation</a></div>
+        <div class="nav_items"> <a id="home_link"href="/team">Team</a></div>
+        <div class="nav_items"> <a id="home_link"href="/about">About</a></div>
+    </div>
+</nav>
+    <div class="container">
+        <form action="/doc_translator" method="post" enctype="multipart/form-data">
+        <label>Select a file:</label><input type="file" id="myfile" name="myfile" accept="application/pdf,application/vnd.ms-excel"><br/>
+        <label>select target language :</label><select name="target" value="Telugu">
+            <option value="auto">Detect language</option>
+            <option value="te">Telugu</option>
+            <option value="hi">Hindi</option>
+            <option value="en">English</option>
+            <option value="bn">Bengali</option>
+            <option value="ta">Tamil</option>
+        </select><br/>.
+
+
+        <button>Convert</button>
+        </form>
+
+        <object data="user_PDF.pdf" type="application/pdf" width="100%" height="200px">
+            <p>
+                <a href="output.pdf" click here to download the PDF file.>
+                    <button class="download"
+                    style="width: 70px;
+                    background-color: rgb(255, 255, 255);
+                    transition: transform .2s;">
+
+
+
+                        <img src="{{url_for('static',filename='img/download.png')}}" alt="Download" width="35px">
+                    </button>
+
+                </a>
+            </p>
+            <h4><p class="paragraph">
+                Click Here To Download
+            </p></h4>
+        </object>
+    </div>
+    {%if translated%}
+<div class="translated_block">
+        <h4 class="trantext">{{translated}}</h4>
+    </div>
+{%endif%}
+
+
+</body>
+</html>

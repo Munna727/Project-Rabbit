@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rabbit</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/nav_bar.css')}}">
+</head>
+<body>
+    <nav class="nav_bar">
+        <div class="left-section">
+            <div class="nav_logo">
+                <img src="{{url_for('static',filename='img/logo_png.png')}}" width="50" height="45">
+            </div>
+            <a id="home_link" href="/"><div class="nav_title"> Rabbit</div></a>
+
+        </div>
+    <div class="right-section">
+        <div class="nav_items"> <a id="home_link"href="/">Home</a></div>
+        <div class="nav_items"> <a id="home_link"href="test.html">Documentation</a></div>
+        <div class="nav_items"> <a id="home_link"href="/team">Team</a></div>
+        <div class="nav_items"> <a id="home_link"href="/about">About</a></div>
+    </div>
+</nav>
+<div class="intro_page">
+    <img  class="intro_img"src="{{url_for('static',filename='img/intro-img.png')}}">
+    <div class="intro-text">A World of Words : Your Multilingual ToolKit</div>
+    <div class="intro-info">Rabbit The Language istant provides instant,accurate language tools.<br/>Simply input your text or Upload a document and our site will handle translation,<br/>grammar checks, and more in real-time.</div>
+
+</div>
+<div class="word-day-container">
+    <div class="word-day-box">
+        <div class="introText">Word  Of  The  Day</div>
+        <div class="date"><p class="day">{{d.day}} {{d.month}} {{d.year}}</p></div>
+        <div class="word"><h1>{{word.capitalize()}}</h1></div>
+        <div class="meaning"><h3>{{wordmean}}</h3></div>
+    </div>
+</div>
+
+<div class="main-features1">
+   <div class="feature">
+    <div class="ver-f1">
+        <img  class="feature-img"src="{{url_for('static',filename='img/trans.jpg')}}" width="200" height="230">
+    </div>
+    <div class="ver-f2">
+        <div class="feature-title">
+            Text Translator
+        </div>
+        <div class="feature-desc">
+            <h3>Functionality:</h3>
+            Instantly convert text between multiple languages using advanced translation APIs.
+        </div>
+        <div class="feature-button">
+           <a href="/translator"><button class="performance-button">Translate</button></a> 
+        </div>
+    </div>
+   </div>
+   <div class="feature">
+    <div class="ver-f1">
+        <img  class="feature-img"src="{{url_for('static',filename='img/edict.jpg')}}" width="180" height="260">
+    </div>
+    <div class="ver-f2">
+        <div class="feature-title">
+            Dictionary
+        </div>
+        <div class="feature-desc">
+            <h4>Functionality:</h4>
+            Search for word definitions, synonyms, antonyms, and usage examples across multiple languages.
+        </div>
+        <div class="feature-button">
+            <a href="/dictionary"><button class="performance-button">Find</button></a>
+        </div>
+    </div>
+    </div>
+</div>
+    <div class="main-features2">
+    <div class="feature">
+        <div class="ver-f1">
+            <img  class="feature-img"src="{{url_for('static',filename='img/epdf.jpg')}}" width="180" height="250">
+        </div>
+        <div class="ver-f2">
+            <div class="feature-title">
+                Pdf Translator
+            </div>
+            <div class="feature-desc">
+                <h4>Functionality:</h4>
+                The PDF Translation feature allows users to upload PDFs and translate them. Users can then download the fully translated PDF.
+            </div>
+            <div class="feature-button">
+               <a href="/doc_translator"> <button class="performance-button">Translate</button></a>
+            </div>
+        </div>
+       </div>
+       <div class="feature">
+        <div class="ver-f1">
+            <img  class="feature-img"src="https://image1.masterfile.com/getImage/NzAwLTAzNDU2MzYwZW4uMDAwMDAwMDA=AGzMsr/700-03456360en_Masterfile.jpg" width="180" height="250">
+        </div>
+        <div class="ver-f2">
+            <div class="feature-title">
+                Daily Word Wizard
+            </div>
+            <div class="feature-desc">
+                <h4>Functionality:</h4>
+                Instantly convert text between multiple languages using advanced translation APIs.
+            </div>
+            <div class="feature-button">
+                <a href="/word_learner"><button class="performance-button">Learn</button></a>
+            </div>
+        </div>
+       </div>
+    </div>
+    <div class="main-features3">
+        <div class="feature">
+         <div class="ver-f1">
+            <!-- https://thumbs.dreamstime.com/b/language-translation-line-icon-outline-sign-linear-pictogram-simple-translate-vector-illustration-isolated-white-symbol-299374861.jpg -->
+             <img  class="feature-img-3-1"src="{{url_for('static',filename='img/espell.jpg')}}">
+         </div>
+         <div class="ver-f2">
+             <div class="feature-title">
+                Spell-Grammar Checker
+             </div>
+             <div class="feature-desc">
+                 <h3>Functionality:</h3>
+                 Identify and suggest corrections for spelling errors, even for less common words and proper nouns.
+             </div>
+             <div class="feature-button">
+                <a href="/spellchecker"><button class="performance-button">Check</button></a>
+             </div>
+         </div>
+        </div>
+        <div class="feature">
+         <div class="ver-f1">
+             <img  class="feature-img"src= "{{url_for('static',filename='img/esummy.jpg')}}" width="180" height="250">
+             </div>
+         <div class="ver-f2">
+             <div class="feature-title">
+                Text Summarizer
+             </div>
+             <div class="feature-desc">
+                 <h4>Functionality:</h4>
+                Input lengthy articles or documents and receive concise summaries that highlight the key points.
+             </div>
+             <div class="feature-button">
+                <a href="/summarizer"><button class="performance-button">Summarize</button></a>
+             </div>
+         </div>
+         </div>
+     </div>
+     <div class="final-div">
+        <div class="ver-f1">
+            <img  class="feature-img"src="https://st4.depositphotos.com/15317184/27903/v/450/depositphotos_279032574-stock-illustration-bot-icon-cute-smiling-robot.jpg" width="180" height="250">
+            </div>
+        <div class="ver-f2">
+            <div class="feature-title">
+               Rabbit [Chatbot]
+            </div>
+            <div class="feature-desc">
+                <h4>Functionality:</h4>
+                Engage in real-time conversations with the chatbot, simulating real-world dialogues to improve fluency.
+            </div>
+            <div class="feature-button">
+                <a href="/chat"><button class="performance-button">Need Help!</button></a>
+            </div>
+        </div>
+        </div>
+        <footer style="margin-top:100px ; background-color: #454545; height: 150px;">
+            <div class="footer-container">
+              <div class="footer-left">
+                <h2>Rabbit Language Assistant</h2>
+                <p>Bridging language gaps with innovative technology. From translations to grammar checks,</br>we make communication simpler.</p>
+              </div>
+          
+              <div class="footer-center">
+                
+              </div>
+          
+              <div class="footer-right">
+                <h3>Contact Us</h3>
+                <p><a href="https://mail.google.com/mail/u/0/#inbox?compose=GTvVlcSHxHCHNDNCZHqZqCdHrhPvmFCqDGsvbkJMxMzkhDDsxcFVrxmrpNjSTklgkGsWGdmkfTgrW" style="text-decoration: none;color: #ffffff;">Email: projectexecution31@gmail.com</a></p>
+                <div class="social-icons">
+                  <a href="#"><img src="https://img.icons8.com/color/96/facebook-new.png" alt="Facebook"></a>
+                  <a href="#"><img src="https://img.icons8.com/color/96/twitter--v1.png" alt="Twitter"></a>
+                  <a href="#"><img src="https://img.icons8.com/fluency/96/instagram-new.png" alt="Instagram"></a>
+                </div>
+              </div>
+            </div>
+          
+            <div class="footer-bottom">
+              <p>&copy; 2024 Rabbit Language Assistant. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+            </div>
+          </footer>
+</body>
+</html>

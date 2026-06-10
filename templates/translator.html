@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='css/text_translator.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/nav_bar.css')}}">
+         <script>
+        function updateAudio() {
+            var audioPlayer = document.getElementById('audioPlayer');
+            var currentTime = new Date().getTime(); // Get current timestamp
+
+            // Append a unique query parameter to the audio source URL
+            var audioSource = document.getElementById('audioSource');
+            audioSource.src = "{{ url_for('static', filename='audios/demo.mp3') }}?t=" + currentTime;
+
+            // Reload and play the new audio
+            audioPlayer.load();
+            audioPlayer.play();
+        }
+    </script>
+</head>
+
+<body>
+<nav class="nav_bar">
+        <div class="left-section">
+            <div class="nav_logo">
+                <img src="{{url_for('static',filename='img/logo_png.png')}}" width="50" height="45">
+            </div>
+            <a id="home_link" href="/"><div class="nav_title"> Rabbit</div></a>
+
+        </div>
+    <div class="right-section">
+        <div class="nav_items"> <a id="home_link"href="/">Home</a></div>
+        <div class="nav_items"> <a id="home_link"href="test.html">Documentation</a></div>
+        <div class="nav_items"> <a id="home_link"href="/team">Team</a></div>
+        <div class="nav_items"> <a id="home_link"href="/about">About</a></div>
+    </div>
+</nav>
+
+    <div class="container">
+<form action="/translator" method="post" enctype="multipart/form-data">
+    <label>Select target language :</label><select name="target">
+        <option value="auto">Detect language</option>
+        <option value="ar">Arabic</option>
+        <option value="te">Telugu</option>
+        <option value="hi">Hindi</option>
+        <option value="en">English</option>
+        <option value="bn">Bengali</option>
+        <option value="ta">Tamil</option>
+        <option value="gu">Gujarati</option>
+        <option value="fr">French</option>
+        <option value="kn">Kannada</option>
+        <option value="ml">Malyalam</option>
+        <option value="mr">Marathi</option>
+        <option value="ne">Nepali</option>
+        <option value="ur">Urdu</option>
+        <option value="vi">Vietnamese</option>
+        <option value="ru">Russian</option>
+    </select><br/>
+    <label>Enter the source text:</label><textarea id="prompt" name="text" rows="15" cols="120">{{text}}</textarea>
+        <button>Convert</button>
+    </div>
+        </form>
+        {%if trans%}
+    <div class="container2">
+        
+    <label>Translated text:</label><textarea id="prompt" name="prompt" rows="15" cols="120">{{trans}}</textarea>
+    
+<audio controls>
+    <source src="{{url}}" type="audio/mpeg">
+    not supported
+</audio>
+
+</div>
+{%endif%}
+
+</body>
+</html>
